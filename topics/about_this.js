@@ -7,7 +7,7 @@ test("'this' inside a method", function () {
 			return "Hello, my name is " + this.__;
 		} 
 	}
-	equal(person.intro(), "Hello, my name is bob", "If an object has a method can you access properties inside it?");
+	equal(person.intro(), "Hello, my name is undefined", "If an object has a method can you access properties inside it?");
 });
 
 test("'this' on unattached function", function () {
@@ -22,7 +22,7 @@ test("'this' on unattached function", function () {
 	
 	// if the function is not called as an object property 'this' is the global context 
 	// (window in a browser). This is an example. Please do not do this in practise.
-	window.__ = 'Peter';
+	window.globalName = 'Peter';
 	equal(alias(), "Hello, my name is Peter", "What does 'this' refer to when it is not part of an object?");
 });
 
